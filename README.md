@@ -1,4 +1,4 @@
-# (Almost) Deep Chatbot
+# (Not so) Deep Chatbot
 
 <details>
   <summary>Table of Contents</summary>
@@ -37,11 +37,15 @@ This is a chatbot of a cafe (for now only chat on command promt)
 Required Libraries:
 * pytorch
 * numpy
-* nlkt
+* nltk
 
 ### Data preparation
 
 Make sure everything is set in `intents.py` file.
+
+### Download `punkt`
+
+On your command promt, run `python`, then run `nltk.download('punkt')`
 
 ### To train the model
 ```
@@ -55,5 +59,4 @@ python chat.py
 
 ## Acknowledgments
 
-* Youtube Tutorial: [video](https://www.youtube.com/watch?v=yN7qfBhfGqs)
-* How to Implement Spatial Transformer Network in PyTorch: [doc](https://pytorch.org/tutorials/intermediate/spatial_transformer_tutorial.html)
+* Youtube Tutorial: [video](https://youtube.com/playlist?list=PLqnslRFeH2UrFW4AUgn-eY37qOAWQpJyg)

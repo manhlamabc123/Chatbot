@@ -56,10 +56,10 @@ input_size = len(X_train[0])
 hidden_size = 8
 output_size = len(tags)
 learning_rate = 0.001
-num_epochs = 100
+num_epochs = 1000
 
 dataset = ChatDataset()
-train_loader = DataLoader(dataset = dataset, batch_size = batch_size, shuffle = True, num_worker = 2)
+train_loader = DataLoader(dataset = dataset, batch_size = batch_size, shuffle = True, num_workers = 2)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
@@ -79,7 +79,20 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
 
-    if (epoch + 1) % 100 == 0:
-        print(f'epoch {epoch+1}/{num_epochs}, loss={loss.item():.4f}')
+    print(f'epoch {epoch+1}/{num_epochs}, loss={loss.item():.4f}')
 
 print(f'final loss, loss={loss.item():.4f}')
+
+data = {
+    'model_state': model.state_dict(),
+    'input_size': input_size,
+    'output_size': output_size,
+    'hidden_size': hidden_size,
+    'all_words': all_words,
+    'tags': tags
+}
+
+FILE = 'data.pth'
+torch.save(data, FILE)
+
+print(f'Training complete. File saved to {FILE}')

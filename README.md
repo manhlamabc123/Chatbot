@@ -1,4 +1,4 @@
-# (Almost) Deep Chatbot
+#  Chatbot using Neural Network
 
 <details>
   <summary>Table of Contents</summary>
